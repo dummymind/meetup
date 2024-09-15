@@ -1,13 +1,15 @@
 import React from 'react'
-import { View,Text,Image } from 'react-native';
+import { View,Text,Image,Pressable } from 'react-native';
 import Feather from '@expo/vector-icons/Feather';
 import dayjs from 'dayjs';
+import {Link} from 'expo-router';
 
 export default function EventListItem(props) {
 
   const event = props.event;
   return (
-<View className='p-2 mt-2 gap-2 border-b border-stone-200'>
+<Link href={`/${event.id}`} asChild>
+<Pressable className='p-2 mt-2 gap-2 border-b border-stone-200'>
 
 <View className='flex-row'>
   <View className='flex-1'>
@@ -27,7 +29,7 @@ className='aspect-video  rounded-xl'></Image></View>
         <Feather name='bookmark' size={24} color="gray"></Feather>
     </View>
     
-    </View>      
-
+    </Pressable>      
+    </Link>
 )
 }
